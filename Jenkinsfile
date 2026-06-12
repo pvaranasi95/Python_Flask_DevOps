@@ -12,6 +12,8 @@ pipeline {
         stage("Build_Docker_Image") {
             steps {
               bat """
+              @echo off
+                 echo "Building dokcer image"
                 docker build -t ${JOB_NAME.toLowerCase()}:${BUILD_NUMBER} .
                 """
             }
@@ -19,6 +21,8 @@ pipeline {
          stage("Check_Image_Status") {
             steps {
               bat """
+              @echo off
+               echo "Checking Image existence"
                 docker image list --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}\t{{.Size}}" ${JOB_NAME.toLowerCase()}:${BUILD_NUMBER}
                 """
             }
