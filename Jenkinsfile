@@ -27,7 +27,7 @@ pipeline {
               bat """
               @echo off
                echo "Checking Image existence"
-                docker image list --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}\t{{.Size}}" ${shortname}:${BUILD_NUMBER}
+                docker image list --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}\t{{.Size}}" ${shortName}:${BUILD_NUMBER}
                 """
             }
         }
