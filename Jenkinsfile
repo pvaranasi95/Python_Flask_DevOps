@@ -19,7 +19,7 @@ pipeline {
          stage("Check_Image_Status") {
             steps {
               bat """
-                docker images | findstr ${JOB_NAME.toLowerCase()}:${BUILD_NUMBER}
+                docker image list --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}\t{{.Size}}" ${JOB_NAME.toLowerCase()}:${BUILD_NUMBER}
                 """
             }
         }
