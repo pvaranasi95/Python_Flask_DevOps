@@ -12,14 +12,14 @@ pipeline {
         stage("Build_Docker_Image") {
             steps {
               bat """
-                docker build -t ${JOB_NAME}:${BUILD_NUMBER} .
+                docker build -t ${JOB_NAME.toLowerCase()}:${BUILD_NUMBER} .
                 """
             }
         }
          stage("Check_Image_Status") {
             steps {
               bat """
-                docker ps | Select-String ${JOB_NAME}:${BUILD_NUMBER}
+                docker ps | Select-String ${JOB_NAME.toLowerCase()}:${BUILD_NUMBER}
                 """
             }
         }
