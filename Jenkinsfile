@@ -10,17 +10,18 @@ pipeline {
     }
 }
         stage("Build_Docker_Image") {
-            steps {
-                script {
-                    def shortName = JOB_NAME.tokenize('/').last().toLowerCase()
-                }
-              bat """
-              @echo off
-                 echo "Building dokcer image"
-                docker build -t ${shortName}:${BUILD_NUMBER} .
-                """
-            }
+    steps {
+        script {
+            shortName = JOB_NAME.tokenize('/').last().toLowerCase()
         }
+
+        bat """
+        @echo off
+        echo Building docker image
+        docker build -t ${shortName}:${BUILD_NUMBER} .
+        """
+    }
+}
          stage("Check_Image_Status") {
             steps {
               bat """
