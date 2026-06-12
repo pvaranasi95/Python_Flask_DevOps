@@ -11,11 +11,14 @@ pipeline {
 }
         stage("Build_Docker_Image") {
             steps {
+                script {
+                    def shortName = JOB_NAME.tokenize('/').last().toLowerCase()
               bat """
               @echo off
                  echo "Building dokcer image"
-                docker build -t ${JOB_NAME.toLowerCase()}:${BUILD_NUMBER} .
+                docker build -t ${shortName}:${BUILD_NUMBER} .
                 """
+                }
             }
         }
          stage("Check_Image_Status") {
@@ -23,7 +26,7 @@ pipeline {
               bat """
               @echo off
                echo "Checking Image existence"
-                docker image list --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}\t{{.Size}}" ${JOB_NAME.toLowerCase()}:${BUILD_NUMBER}
+                docker image list --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}\t{{.Size}}" ${shortname}:${BUILD_NUMBER}
                 """
             }
         }
