@@ -12,7 +12,7 @@ pipeline {
         stage("Build_Docker_Image") {
     steps {
         script {
-            shortName = JOB_NAME.split('/')[1]
+            shortName = JOB_NAME.split('/')[1].toLowerCase()
         }
 
         bat """
