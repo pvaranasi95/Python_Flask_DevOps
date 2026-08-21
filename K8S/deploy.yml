@@ -1,4 +1,4 @@
-apiVersion : apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: flaskapp-deployment
@@ -16,6 +16,6 @@ spec:
         - name: dockerhub-secret
       containers:
         - name: flaskapp
-          image: flaskapp:latest
+          image: pvaranasi95/flaskapp:4
           ports:
             - containerPort: 5000
