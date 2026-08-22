@@ -17,7 +17,7 @@ ex_image=$(grep 'image:' deploy.yml | awk '{print $2}')
 
 echo "Existing image = $ex_image"
 
-sed -i "s|$ex_image|$image:$tag|g" deploy.yml
+sed -i "s|$ex_image|pvaranasi/$image:$tag|g" deploy.yml
 
 cat deploy.yml
 
