@@ -16,6 +16,7 @@ echo $ex_image
 sed -i "s|$ex_image|$image:$tag|g" deploy.yml
 cat deploy.yml
 git config --global user.email "pavanvaranasi95@gmail.com"
+git config --global user.name "pvaranasi95"
 git add .
 git commit -m "Changed image in deploy.yml file"
 git push --set-upstream origin feature/flaskapp_$tag
