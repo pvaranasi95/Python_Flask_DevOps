@@ -21,10 +21,4 @@ sed -i "s|$ex_image|$image:$tag|g" deploy.yml
 
 cat deploy.yml
 
-git config user.name "pvaranasi95"
-git config user.email "jenkins@localhost"
 
-git add deploy.yml
-git commit -m "Changed image in deploy.yml file"
-
-git push --set-upstream origin "feature/flaskapp_$tag"
