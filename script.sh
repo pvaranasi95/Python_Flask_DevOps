@@ -15,6 +15,7 @@ ex_image=$(grep image: deploy.yml | awk '{print $2}')
 echo $ex_image
 sed -i "s|$ex_image|$image:$tag|g" deploy.yml
 cat deploy.yml
+git config --global user.email "pavanvaranasi95@gmail.com"
 git add .
 git commit -m "Changed image in deploy.yml file"
-git push
+git push --set-upstream origin feature/flaskapp_$tag
