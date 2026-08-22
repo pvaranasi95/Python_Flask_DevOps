@@ -5,6 +5,9 @@ if [ $# -ne 2 ]; then
    echo "Insufficient args"
    exit
 fi
+
+echo "Image= " $image
+echo "Tag  = " $tag
 cd K8S
 ex_image=$(grep image: deploy.yml | awk '{print $2}')
 echo $ex_image
