@@ -1,7 +1,7 @@
 image=$1
 tag=$2
 
-git checkout -b "feature/flaskapp_$tag
+git checkout -b "feature/flaskapp_$tag"
 
 if [ $# -ne 2 ]; then
    echo "Insufficient args"
