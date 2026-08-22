@@ -17,6 +17,6 @@ spec:
         - name: dockerhub-secret
       containers:
         - name: flaskapp
-          image: pvaranasi/flaskapp:4
+          image: pvaranasi/flaskapp:5
           ports:
             - containerPort: 5000
