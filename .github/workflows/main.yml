@@ -1,0 +1,14 @@
+name: "python testing"
+
+on: 
+  push:
+    branches: [ "main" ]
+
+jobs:
+  content:
+    runs-on: ubuntu-latest
+    steps:
+      - name: list all files
+        run: ls -ltr
+    
+    
